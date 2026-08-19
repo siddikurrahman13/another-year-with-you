@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090a1a">
+<title>Favourite Chapter ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stars"></div>
+
+<audio id="bgMusic" src="music.mp3" preload="auto" loop></audio>
+
+<!-- TOP NAV -->
+<div class="top-nav-controls">
+  <button id="navBackBtn" class="nav-btn" onclick="goBackPage()" style="display:none;">← Back</button>
+  <button id="navMusicBtn" class="nav-btn right-btn" onclick="toggleAudio()">♫ Music</button>
+</div>
+
+<!-- WELCOME -->
+<section id="welcome">
+  <h3>A little surprise for someone special ❤️</h3>
+  <h1>Favourite Chapter</h1>
+  <p>Every story has a beginning...<br>and maybe ours has a few chapters worth remembering. ✨</p>
+  <button onclick="nextPage()">Begin The Journey ❤️</button>
+</section>
+
+<!-- PASSWORD -->
+<section id="passwordPage" class="page hidden">
+  <div class="glass">
+    <h2>Before we begin... 🔐</h2>
+    <p>There is a little secret waiting for you.<br>Enter the password to continue.</p>
+    <input id="password" type="password" placeholder="Enter the secret..." autocomplete="off"
+           onkeydown="if(event.key==='Enter') checkPassword()">
+    <button onclick="checkPassword()">Unlock ❤️</button>
+    <small>Hint: It's the name of this little world.</small>
+  </div>
+</section>
+
+<!-- ENVELOPE -->
+<section id="envelopePage" class="page hidden">
+  <div class="envelope" onclick="openEnvelope()" aria-label="Open envelope">
+    <div class="letter">💌</div>
+    <div class="cover"></div>
+  </div>
+  <div class="tapText">Tap the envelope to open the first chapter...</div>
+</section>
+
+<!-- CHAPTER 1 -->
+<section id="letterPage" class="hidden">
+  <div class="paper">
+    <h2>Every Story Has A Beginning 🤍</h2>
+    <div id="typewriter"></div>
+  </div>
+  <button id="nextChapterBtn" onclick="goToChapter2()">Continue to Chapter 2 ✨</button>
+</section>
+
+<!-- CHAPTER 2 -->
+<section id="chapter2" class="page hidden">
+  <div class="chapterCard">
+    <div class="chapterNumber">CHAPTER 02</div>
+    <h2>The Story We Didn't Expect</h2>
+    <div id="chapter2Story"></div>
+    <button id="chapter2NextBtn" style="display:none;">Continue ✨</button>
+  </div>
+</section>
+
+<!-- CHAPTER 3 -->
+<section id="chapter3" class="hidden">
+  <div class="chapter3Paper">
+    <div class="chapterNumber">CHAPTER 03</div>
+    <h1>Somewhere Between The Lines 🤍</h1>
+    <div id="chapter3Story"></div>
+    <button id="chapter3NextBtn" style="display:none;">Continue ✨</button>
+  </div>
+</section>
+
+<!-- FINAL CHAPTER INTRO -->
+<section id="finalChapter" class="hidden">
+  <div class="finalReveal">
+    <div class="finalLabel">THE FINAL CHAPTER</div>
+    <h1>One Last Little Surprise... ❤️</h1>
+    <p class="finalHint">You've made it this far.<br>But there's still one thing I wanted you to see.</p>
+    <button id="openFinalBtn" onclick="openFinalSurprise()">Open The Surprise 💌</button>
+  </div>
+</section>
+
+<!-- BIRTHDAY REVEAL -->
+<section id="birthdayReveal" class="hidden">
+  <div class="birthdayContent">
+    <div class="tinyStars">✦ ✧ ✦</div>
+    <p class="birthdaySmall">TODAY IS A LITTLE MORE SPECIAL</p>
+    <h1>Happy Birthday</h1>
+    <h2>Suma ❤️</h2>
+
+    <div class="birthdayImageBox">
+      <img class="birthday-surprise-image" src="birthday-surprise.png" alt="Happy Birthday Suma">
+    </div>
+
+    <p class="pictureLine">If I could be there today, I wouldn't let your birthday pass without celebrating it with you. 🤍</p>
+
+    <div id="birthdayMessage"></div>
+    <button id="oneMoreBtn" style="display:none;">Continue ✨</button>
+  </div>
+</section>
+
+<!-- CELEBRATION -->
+<section id="celebrationScene" class="hidden">
+  <div id="celebrationConfetti"></div>
+
+  <div class="celebrationContent">
+    <p class="celebrationIntro">And now... one tiny birthday ritual ✨</p>
+    <h2>Close your eyes, make a wish, and let this moment be yours. 🤍</h2>
+
+    <div class="celebrationImageBox">
+      <img class="celebrationImage" src="birthday-surprise.png" alt="Birthday celebration">
+    </div>
+
+    <p class="wishInstruction">When you're ready, <span>make your wish.</span> 🎂</p>
+
+    <button id="makeWishBtn" onclick="startCelebration()">Make A Wish ✨</button>
+    <div id="celebrationMessage"></div>
+    <button id="celebrationContinueBtn" onclick="goToFinalMessage()" style="display:none;">One Last Message ❤️</button>
+  </div>
+</section>
+
+<!-- ULTIMATE ENDING -->
+<section id="ultimateEnding" class="hidden">
+  <div class="endingContent">
+    <div class="endingHeart">❤️</div>
+    <div id="ultimateText"></div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
